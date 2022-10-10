@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="diagnosis">Диагноз:</string>
+    <string name="enter_name">ФИО</string>
+    <string name="enter_date">Дата поступления</string>
+    <string name="date_of_discharge">Дата выписки</string>
+    <string name="text_diagnosis">Диагноз</string>
+    <string name="enter_doctor">Лечащий врач</string>
+    <string name="enter_card_link">Медицинская карта</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="lastname">Отчество</string>
+</resources>
