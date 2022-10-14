@@ -5,6 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/tv_add_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_data"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
@@ -14,6 +26,7 @@
         android:paddingBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_patient" />
@@ -26,6 +39,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/greenPrimary"
         android:src="@drawable/ic_add"
+        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
