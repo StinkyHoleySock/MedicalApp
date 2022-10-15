@@ -8,30 +8,35 @@
         android:id="@+id/listFragment"
         android:name="com.example.medicalApp.ui.ListFragment"
         android:label="ListFragment" >
+
         <action
-            android:id="@+id/action_listFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            android:id="@+id/action_listFragment_to_addFragment"
+            app:destination="@id/addFragment" />
         <action
             android:id="@+id/action_listFragment_to_editFragment"
             app:destination="@id/editFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailsFragment"
-        android:name="com.example.medicalApp.ui.DetailsFragment"
-        android:label="DetailsFragment" >
+        android:id="@+id/editFragment"
+        android:name="com.example.medicalApp.ui.EditFragment"
+        android:label="EditFragment">
         <argument
             android:name="patientCard"
             app:argType="com.example.medicalApp.db.PatientCard" />
         <action
-            android:id="@+id/action_detailsFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            android:id="@+id/edit_to_list"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/editFragment"
-        android:name="com.example.medicalApp.ui.EditFragment"
-        android:label="EditFragment" >
+        android:id="@+id/addFragment"
+        android:name="com.example.medicalApp.ui.AddFragment"
+        android:label="AddFragment">
         <action
-            android:id="@+id/action_editFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            android:id="@+id/add_to_list"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

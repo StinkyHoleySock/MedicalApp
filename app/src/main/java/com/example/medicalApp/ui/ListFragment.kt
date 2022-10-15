@@ -48,7 +48,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         }
 
         binding.fabAddPatient.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_editFragment)
+            findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
     }
 }

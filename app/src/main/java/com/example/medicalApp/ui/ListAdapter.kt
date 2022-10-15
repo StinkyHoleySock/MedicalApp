@@ -33,7 +33,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.PatientCardViewHolder>() {
         holder.diagnosis.text = currentItem.diagnosis
 
         holder.itemView.setOnClickListener {
-            val action = ListFragmentDirections.actionListFragmentToDetailsFragment(currentItem)
+            val action = ListFragmentDirections.actionListFragmentToEditFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
     }
