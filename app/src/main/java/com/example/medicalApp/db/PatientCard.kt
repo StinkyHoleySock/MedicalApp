@@ -19,3 +19,4 @@ data class PatientCard(
     val doctor: String,
     val cardLink: String
 ) : Parcelable
+

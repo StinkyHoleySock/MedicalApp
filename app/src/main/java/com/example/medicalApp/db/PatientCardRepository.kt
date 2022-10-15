@@ -1,6 +1,5 @@
 package com.example.medicalApp.db
 
-
 class PatientCardRepository(private val patientCardDao: PatientCardDao) {
 
     fun getData(): List<PatientCard> {
@@ -19,3 +18,4 @@ class PatientCardRepository(private val patientCardDao: PatientCardDao) {
         patientCardDao.deletePatientCardByID(id)
     }
 }
+

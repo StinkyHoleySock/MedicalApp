@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">АРМ регистратуры</string>
     <string name="diagnosis">Диагноз:</string>
     <string name="enter_name">ФИО</string>
     <string name="enter_date">Дата поступления</string>

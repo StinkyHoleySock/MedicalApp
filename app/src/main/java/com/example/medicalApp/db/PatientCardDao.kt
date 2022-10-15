@@ -16,3 +16,4 @@ interface PatientCardDao {
     @Query("SELECT * FROM patient_card")
     fun getData(): List<PatientCard>
 }
+
