@@ -14,9 +14,11 @@ import com.example.medicalApp.db.PatientCard
 import com.example.medicalApp.vm.PatientCardViewModel
 
 class EditFragment : Fragment(R.layout.fragment_edit) {
-
+    //Инициализация биндинга
     private lateinit var binding: FragmentEditBinding
+    //Инициализация класса viewModel с помощью делегата
     private val viewModel: PatientCardViewModel by viewModels()
+    //Инициализация аргументов (navigation component)
     private val args: EditFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -30,11 +32,6 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        initView()
-    }
-
-    private fun initView() {
         with(binding) {
             etName.setText(args.patientCard.name)
             etSurname.setText(args.patientCard.surname)
@@ -46,6 +43,7 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
             etCard.setText(args.patientCard.cardLink)
         }
 
+        //Логика отображения диалогового окна
         val builder = AlertDialog.Builder(context)
         builder
             .setMessage("Вы действительно хотите удалить карточку пациента?")
@@ -59,6 +57,7 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
             }
             .setNegativeButton("Отмена") { _, _ -> }
 
+        //Использование биндинга и назначение слушателя кнопке
         binding.buttonSubmit.setOnClickListener {
             updateData()
         }
@@ -67,7 +66,7 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
             builder.create().show()
         }
     }
-
+    //Метод для обновления карточки пациента в базу данных
     private fun updateData() {
         val name = binding.etName.text.toString()
         val surname = binding.etSurname.text.toString()
@@ -85,11 +84,11 @@ class EditFragment : Fragment(R.layout.fragment_edit) {
             findNavController().navigate(R.id.edit_to_list)
         } else Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
     }
-
+    //Метод для удаления карточки пациента из базы
     private fun deleteData() {
         viewModel.deletePatientCardById(args.patientCard.id)
     }
-
+    //Метод для проверки вводимых данных на пустую строку
     private fun inputCheck(
         name: String, surname: String, date: String, diagnosis: String, doctor: String
     ): Boolean {

@@ -15,9 +15,10 @@ import com.example.medicalApp.db.PatientCard
 import com.example.medicalApp.vm.PatientCardViewModel
 
 class AddFragment : Fragment(R.layout.fragment_add) {
+    //Инициализация биндинга
     private lateinit var binding: FragmentAddBinding
+    //Инициализация класса viewModel с помощью делегата
     private val viewModel: PatientCardViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,15 +27,14 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         binding = FragmentAddBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        //Использование биндинга и назначение слушателя кнопке
         binding.buttonSubmit.setOnClickListener {
             insertDataToDatabase()
         }
     }
-
+    //Метод для вставки карточки пациента в базу данных
     private fun insertDataToDatabase() {
         val name = binding.etName.text.toString()
         val surname = binding.etSurname.text.toString()
@@ -53,6 +53,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         } else Toast.makeText(requireContext(), "Заполните поля!", Toast.LENGTH_SHORT).show()
     }
 
+    //Метод для проверки вводимых данных на пустую строку
     private fun inputCheck(
         name: String, surname: String, date: String, diagnosis: String, doctor: String
     ): Boolean {

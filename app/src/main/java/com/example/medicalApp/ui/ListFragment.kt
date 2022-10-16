@@ -18,8 +18,9 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class ListFragment : Fragment(R.layout.fragment_list) {
-
+    //Инициализация биндинга
     private lateinit var binding: FragmentListBinding
+    //Инициализация класса viewModel с помощью делегата
     private val viewModel: PatientCardViewModel by viewModels()
 
     override fun onCreateView(
@@ -30,23 +31,21 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val adapter = ListAdapter()
         val recyclerView = binding.rvList
-
+        //Назначение адаптера и layoutManager'а для recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
+        //Если список пустой, то отображается надпись
         CoroutineScope(Dispatchers.IO).launch {
             adapter.setData(viewModel.getData())
             if (adapter.itemCount > 0) {
                 binding.tvAddData.visibility = View.GONE
             }
         }
-
+        //Использование биндинга и назначение слушателя кнопке
         binding.fabAddPatient.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }

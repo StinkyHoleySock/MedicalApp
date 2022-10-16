@@ -8,10 +8,9 @@ import com.example.medicalApp.db.PatientCardRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+//Класс вьюмодели, принимает методы из репозитория
 class PatientCardViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: PatientCardRepository
-    private var _data =  MutableLiveData<List<PatientCard>>()
-    val data: LiveData<List<PatientCard>> get() = _data
 
     init {
         val patientDao = AppDatabase.getDatabase(application).patientDao()

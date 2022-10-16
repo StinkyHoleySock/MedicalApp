@@ -9,10 +9,11 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.medicalApp.R
 import com.example.medicalApp.db.PatientCard
-
+//Класс адаптера для RecyclerView
 class ListAdapter : RecyclerView.Adapter<ListAdapter.PatientCardViewHolder>() {
 
     private var patientList = emptyList<PatientCard>()
+
     inner class PatientCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val fullName: TextView = itemView.findViewById(R.id.tv_fullName)
         val diagnosis: TextView = itemView.findViewById(R.id.tv_diagnosis)
@@ -24,20 +25,16 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.PatientCardViewHolder>() {
                 .inflate(R.layout.item_patient, parent, false)
         )
     }
-
     override fun onBindViewHolder(holder: PatientCardViewHolder, position: Int) {
-
         val currentItem = patientList[position]
         val fullName = "${currentItem.surname} ${currentItem.name} ${currentItem.lastname}"
         holder.fullName.text = fullName
         holder.diagnosis.text = currentItem.diagnosis
-
         holder.itemView.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToEditFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
     }
-
     override fun getItemCount() = patientList.size
 
     fun setData(patients: List<PatientCard>) {
